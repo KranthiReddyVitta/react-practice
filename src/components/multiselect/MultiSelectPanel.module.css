@@ -1,0 +1,14 @@
+.multiSelectPanel {
+    max-width: 20rem;
+    background: #ffffff;
+    color: #495057;
+    border: 0 none;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+    height: 14rem;
+    overflow-y: scroll;
+    transition: height 2s ease-in-out;
+    margin: 0;
+    padding: 0.75rem 1.25rem;
+    border: 0 none;
+}

@@ -41,7 +41,7 @@ const CreateRule = () => {
     loeDate: "",
     ruleDescription: "",
     rejection: "",
-    display: [],
+    display: [7],
   };
 
   // const updateRequired = () => {

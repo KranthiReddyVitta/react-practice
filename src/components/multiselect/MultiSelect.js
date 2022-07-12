@@ -103,7 +103,7 @@ const MultiSelect = (props) => {
     <Fragment>
       <div className={classNames.multiselect}>
         <div className={classNames.placeholder}>
-          {isPanelShown ? content : props.placeholder}
+          {isPanelShown || select.length ? content : props.placeholder}
         </div>
         <div className={classNames.trigger} onClick={panelHandler}>
           <span>

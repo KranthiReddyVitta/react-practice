@@ -11,11 +11,11 @@ li {
     cursor: pointer;
 }
 
-input {
+input[type="checkbox"] {
     height: 20px;
     width: 20px;
 }
 
-label {
+.custom_label {
     margin-left: 20px;
 }

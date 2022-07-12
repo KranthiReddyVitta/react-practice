@@ -1,4 +1,4 @@
-import "./MultiSelectItem.module.css";
+import classNames from "./MultiSelectItem.module.css";
 const MultiSelectItem = (props) => {
   return (
     <>
@@ -10,7 +10,7 @@ const MultiSelectItem = (props) => {
           checked={props.isChecked}
           onChange={props.onChangeHandler}
         />
-        <label htmlFor={props.id}> {props.name}</label>
+        <label className={classNames.custom_label} htmlFor={props.id}> {props.name}</label>
       </li>
     </>
   );

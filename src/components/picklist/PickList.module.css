@@ -1,0 +1,41 @@
+.actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.actions .button {
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.listing {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0rem !important;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.orderList {
+    padding: 0rem;
+    margin: 0rem;
+}
+
+.listItem {
+    padding: 0.75rem 2rem;
+    margin: 0rem;
+}
+
+.listItem:hover {
+    background-color: azure;
+}
+
+.selected {
+    background-color: azure;
+}

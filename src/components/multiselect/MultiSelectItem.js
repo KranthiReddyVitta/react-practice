@@ -10,7 +10,10 @@ const MultiSelectItem = (props) => {
           checked={props.isChecked}
           onChange={props.onChangeHandler}
         />
-        <label className={classNames.custom_label} htmlFor={props.id}> {props.name}</label>
+        <label className={classNames.custom_label} htmlFor={props.id}>
+          {" "}
+          {props.name}
+        </label>
       </li>
     </>
   );

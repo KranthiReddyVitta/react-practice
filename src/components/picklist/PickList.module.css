@@ -33,9 +33,10 @@
 }
 
 .listItem:hover {
-    background-color: azure;
+    background: #eef2ff;
 }
 
 .selected {
-    background-color: azure;
+    background: #eef2ff;
+    box-shadow: #eef2ff;
 }

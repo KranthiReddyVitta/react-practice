@@ -75,7 +75,15 @@ const CreateRule = () => {
       .positive("Rule Points must be positive"),
     ruleDate: Yup.date().required("Rule Date is Required"),
     hardStop: Yup.number().required("HardStop is Required"),
-    loeDate: Yup.date().required("Loe Date is Required"),
+    loeDate: Yup.date()
+      .required("Loe Date is Required")
+      .when("ruleDate", (ruleDate) => {
+        if (ruleDate) {
+          return Yup.date()
+            .min(ruleDate, "End Date must be after Start Date")
+            .typeError("End Date is required");
+        }
+      }),
     ruleDescription: Yup.string().required("Rule Description is Required"),
     rejection: Yup.string().required("Rejection Verbiage is Required"),
     display: Yup.array()

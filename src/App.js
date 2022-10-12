@@ -1,5 +1,9 @@
 import "./App.css";
+import LifeCycle from "./components/lifeCycle/LifeCycle";
 import PickList from "./components/picklist/PickList";
+import ClickCounter from "./components/renderProps/ClickCounter";
+import Counter from "./components/renderProps/Counter";
+import HoverCounter from "./components/renderProps/HoverCounter";
 //import MultiselectDemo from "./pages/MultiselectDemo";
 import RuleDetails from "./pages/RuleDetails";
 
@@ -13,7 +17,18 @@ function App() {
     <>
       {/* <MultiselectDemo /> */}
       <RuleDetails />
-      <PickList data={data} input={input}/>
+      <PickList data={data} input={input} />
+      <LifeCycle data="Input data" />
+      <Counter
+        render={(count, incrementCount) => (
+          <ClickCounter count={count} incrementCount={incrementCount} />
+        )}
+      />
+       <Counter
+        render={(count, incrementCount) => (
+          <HoverCounter count={count} incrementCount={incrementCount} />
+        )}
+      />
     </>
   );
 }

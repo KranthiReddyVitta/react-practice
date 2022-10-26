@@ -1,6 +1,9 @@
 import "./App.css";
 import LifeCycle from "./components/lifeCycle/LifeCycle";
 import PickList from "./components/picklist/PickList";
+import Profile from "./components/redux-example/Profile";
+import Timer from "./components/redux-example/Timer";
+import TimerControls from "./components/redux-example/TimerControls";
 import ClickCounter from "./components/renderProps/ClickCounter";
 import Counter from "./components/renderProps/Counter";
 import HoverCounter from "./components/renderProps/HoverCounter";
@@ -29,6 +32,9 @@ function App() {
           <HoverCounter count={count} incrementCount={incrementCount} />
         )}
       />
+      <Timer/>
+      <TimerControls/>
+      <Profile/>
     </>
   );
 }

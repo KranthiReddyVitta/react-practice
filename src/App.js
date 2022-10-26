@@ -13,6 +13,7 @@ import TimerControls from "./components/redux-example/TimerControls";
 import ClickCounter from "./components/renderProps/ClickCounter";
 import Counter from "./components/renderProps/Counter";
 import HoverCounter from "./components/renderProps/HoverCounter";
+import CartReducer from "./components/UseReducerEx/CartReducer";
 //import MultiselectDemo from "./pages/MultiselectDemo";
 import RuleDetails from "./pages/RuleDetails";
 import AuthProvider from "./store/AuthProvider";
@@ -50,6 +51,7 @@ function App() {
         <Login />
         <LogOut />
       </AuthProvider>
+      <CartReducer/>
     </>
   );
 }

@@ -1,4 +1,10 @@
 import "./App.css";
+import Login from "./components/Context/Login";
+import LoginStatus from "./components/Context/LoginStatus";
+import LogOut from "./components/Context/LogOut";
+import OuterButton from "./components/forwardRef/OuterButton";
+import HocClick from "./components/higerorder/hocClick";
+import HocHover from "./components/higerorder/hocHover";
 import LifeCycle from "./components/lifeCycle/LifeCycle";
 import PickList from "./components/picklist/PickList";
 import Profile from "./components/redux-example/Profile";
@@ -9,6 +15,7 @@ import Counter from "./components/renderProps/Counter";
 import HoverCounter from "./components/renderProps/HoverCounter";
 //import MultiselectDemo from "./pages/MultiselectDemo";
 import RuleDetails from "./pages/RuleDetails";
+import AuthProvider from "./store/AuthProvider";
 
 function App() {
   const data = Array.from({ length: 10 }).map((item, index) => {
@@ -27,14 +34,22 @@ function App() {
           <ClickCounter count={count} incrementCount={incrementCount} />
         )}
       />
-       <Counter
+      <Counter
         render={(count, incrementCount) => (
           <HoverCounter count={count} incrementCount={incrementCount} />
         )}
       />
-      <Timer/>
-      <TimerControls/>
-      <Profile/>
+      <Timer />
+      <TimerControls />
+      <Profile />
+      <HocClick />
+      <HocHover />
+      <OuterButton />
+      <AuthProvider>
+        <LoginStatus />
+        <Login />
+        <LogOut />
+      </AuthProvider>
     </>
   );
 }

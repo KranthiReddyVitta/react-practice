@@ -1,57 +1,57 @@
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Login from "./components/Context/Login";
-import LoginStatus from "./components/Context/LoginStatus";
-import LogOut from "./components/Context/LogOut";
-import OuterButton from "./components/forwardRef/OuterButton";
-import HocClick from "./components/higerorder/hocClick";
-import HocHover from "./components/higerorder/hocHover";
-import LifeCycle from "./components/lifeCycle/LifeCycle";
-import PickList from "./components/picklist/PickList";
-import Profile from "./components/redux-example/Profile";
-import Timer from "./components/redux-example/Timer";
-import TimerControls from "./components/redux-example/TimerControls";
-import ClickCounter from "./components/renderProps/ClickCounter";
-import Counter from "./components/renderProps/Counter";
-import HoverCounter from "./components/renderProps/HoverCounter";
-import CartReducer from "./components/UseReducerEx/CartReducer";
-//import MultiselectDemo from "./pages/MultiselectDemo";
-import RuleDetails from "./pages/RuleDetails";
+import Featured from "./pages/Featured";
+import Home from "./pages/Home";
+import LoginNew from "./pages/Login";
+import Navbar from "./pages/Navbar";
+import New from "./pages/New";
+import Nomatch from "./pages/Nomatch";
+import Order from "./pages/Order";
+import Products from "./pages/Products";
+import Profile from "./pages/Profile";
+import Protected from "./pages/Protected";
+import UserDetails from "./pages/UserDetails";
+import Users from "./pages/Users";
 import AuthProvider from "./store/AuthProvider";
+const LazyAbout = React.lazy(() => import("./pages/About"));
 
 function App() {
-  const data = Array.from({ length: 10 }).map((item, index) => {
-    return { id: index + 1, name: `Item ${index}` };
-  });
-  const input = [2, 3, 4];
   return (
     // <MultiselectDemo/>
     <>
-      {/* <MultiselectDemo /> */}
-      <RuleDetails />
-      <PickList data={data} input={input} />
-      <LifeCycle data="Input data" />
-      <Counter
-        render={(count, incrementCount) => (
-          <ClickCounter count={count} incrementCount={incrementCount} />
-        )}
-      />
-      <Counter
-        render={(count, incrementCount) => (
-          <HoverCounter count={count} incrementCount={incrementCount} />
-        )}
-      />
-      <Timer />
-      <TimerControls />
-      <Profile />
-      <HocClick />
-      <HocHover />
-      <OuterButton />
       <AuthProvider>
-        <LoginStatus />
-        <Login />
-        <LogOut />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="about"
+            element={
+              <React.Suspense fallback="Loading....">
+                <LazyAbout />
+              </React.Suspense>
+            }
+          />
+          <Route path="order-summary" element={<Order />} />
+          <Route path="products" element={<Products />}>
+            <Route index element={<Featured />} />
+            <Route path="featured" element={<Featured />} />
+            <Route path="new" element={<New />} />
+          </Route>
+          <Route path="users" element={<Users />} />
+          <Route path="users/:id" element={<UserDetails />} />
+          <Route
+            path="profile"
+            element={
+              <Protected>
+                <Profile />
+              </Protected>
+            }
+          />
+          <Route path="login" element={<LoginNew />} />
+          <Route path="*" element={<Nomatch />} />
+        </Routes>
       </AuthProvider>
-      <CartReducer/>
     </>
   );
 }
